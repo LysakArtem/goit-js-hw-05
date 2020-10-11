@@ -1,23 +1,19 @@
 "use strict"
 
-
 class Storage{
-    constructor(item){
-        this.item = item;
+    constructor(items){
+        this.items = items;
     }
     getItems(){
-        return this.item;
+        return this.items;
     }
-    addItem(item){
-        this.item = this.item.push(item);
-        return this.item;
+    addItem(itemName){
+         this.items.push(itemName);
     }
-    removeItem(itemm){
-        this.item = this.item.pop();
-        return this.item;
+    removeItem(itemName){
+        this.items = this.items.filter(item => item !== itemName);
     }
 }
-
 
 const storage = new Storage([
     'Нанитоиды',
@@ -30,7 +26,7 @@ const storage = new Storage([
   console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
   
   storage.addItem('Дроид');
-  console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
+  console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
   
   storage.removeItem('Пролонгер');
-  console.table(storage.item); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
+  console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]

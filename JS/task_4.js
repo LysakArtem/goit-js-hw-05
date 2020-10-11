@@ -1,6 +1,5 @@
 "use strict"
 
-
 class StringBuilder{
     constructor(value){
         this._value=value;
